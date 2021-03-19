@@ -4,6 +4,9 @@ const { animals } = require('./data/animals');
 
 const app = express();
 
+app.use(express.urlencoded({extended:true}));
+app.use(express.json());
+
 const PORT = process.env.PORT || 3001;
 
 function filterByQuery(query, animalsArray) {
@@ -55,6 +58,11 @@ app.get('/api/animals/:id', (req, res) => {
         res.sendStatus(404);
     }
 });
+
+app.post('/api/animals', (req, res) => {
+    console.log(req.body);
+    res.json(req.body);
+})
 
 app.listen(PORT, () => {
     console.log(`Listening on ${PORT}`)
