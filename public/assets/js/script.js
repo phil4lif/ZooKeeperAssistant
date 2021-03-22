@@ -42,7 +42,7 @@ const handleAnimalFormSubmit = event => {
   })
   .then(postRes => {
     console.log(postRes);
-    alert('thank you for adding a new animal')
+    alert(`thank you for adding ${animalObject.name} to the database`)
   });
 };
 
